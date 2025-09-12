@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditEvents.Designer.cs">
+      <DependentUpon>EditEvents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerAddEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerAddEvent.Designer.cs">
+      <DependentUpon>ManagerAddEvent.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserMenu.cs">
@@ -65,8 +77,14 @@
     <Compile Include="ViewEvents.Designer.cs">
       <DependentUpon>ViewEvents.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditEvents.resx">
+      <DependentUpon>EditEvents.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerAddEvent.resx">
+      <DependentUpon>ManagerAddEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
