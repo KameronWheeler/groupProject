@@ -21,5 +21,10 @@ namespace groupProject
         {
 
         }
+
+        private void ManagerAddEvent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
