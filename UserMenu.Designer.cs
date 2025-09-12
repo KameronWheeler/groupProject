@@ -98,10 +98,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(893, 341);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Location = new System.Drawing.Point(661, 237);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 28);
+            this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 6;
             this.button5.Text = "Log out";
             this.button5.UseVisualStyleBackColor = true;
@@ -111,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
