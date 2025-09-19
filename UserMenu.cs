@@ -15,6 +15,12 @@ namespace groupProject
         public UserMenu()
         {
             InitializeComponent();
+            label1.Text = "Welcome, Nate";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
