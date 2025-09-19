@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace groupProject
 {
-    internal static class Program
+    internal static class groupProject
     {
         /// <summary>
         /// The main entry point for the application.
