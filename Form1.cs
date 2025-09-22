@@ -15,6 +15,23 @@ namespace groupProject
         public LoginPage()
         {
             InitializeComponent();
+            //label2.Text = "";
+            //label2.Text = "Username/Password incorrect.";
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

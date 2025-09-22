@@ -16,7 +16,7 @@ namespace groupProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ViewEvents());
+            Application.Run(new LoginPage());
 
         }
     }

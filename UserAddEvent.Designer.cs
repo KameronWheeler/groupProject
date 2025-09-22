@@ -31,13 +31,13 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.descBox = new System.Windows.Forms.TextBox();
+            this.timeBox = new System.Windows.Forms.TextBox();
+            this.dateBox = new System.Windows.Forms.TextBox();
+            this.eventTitleBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button4
@@ -57,6 +57,7 @@
             this.button3.TabIndex = 31;
             this.button3.Text = "Save event";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
             // 
@@ -68,80 +69,80 @@
             this.label4.TabIndex = 30;
             this.label4.Text = "Description: ";
             // 
-            // textBox5
+            // descBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(183, 138);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(193, 296);
-            this.textBox5.TabIndex = 29;
+            this.descBox.Location = new System.Drawing.Point(183, 138);
+            this.descBox.Multiline = true;
+            this.descBox.Name = "descBox";
+            this.descBox.Size = new System.Drawing.Size(193, 296);
+            this.descBox.TabIndex = 29;
             // 
-            // textBox3
+            // timeBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(183, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 24;
+            this.timeBox.Location = new System.Drawing.Point(131, 83);
+            this.timeBox.Name = "timeBox";
+            this.timeBox.Size = new System.Drawing.Size(245, 22);
+            this.timeBox.TabIndex = 38;
             // 
-            // textBox2
+            // dateBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(183, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 23;
+            this.dateBox.Location = new System.Drawing.Point(131, 55);
+            this.dateBox.Name = "dateBox";
+            this.dateBox.Size = new System.Drawing.Size(245, 22);
+            this.dateBox.TabIndex = 37;
             // 
-            // textBox1
+            // eventTitleBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(183, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 22;
+            this.eventTitleBox.Location = new System.Drawing.Point(131, 27);
+            this.eventTitleBox.Name = "eventTitleBox";
+            this.eventTitleBox.Size = new System.Drawing.Size(245, 22);
+            this.eventTitleBox.TabIndex = 36;
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(121, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Time: ";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(30, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Time: ";
             // 
-            // label2
+            // label6
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(122, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Date: ";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(30, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Date: ";
             // 
-            // label1
+            // label7
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(84, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 20);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Event Title:";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(30, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 20);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Event Title: ";
             // 
             // UserAddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 450);
+            this.Controls.Add(this.timeBox);
+            this.Controls.Add(this.dateBox);
+            this.Controls.Add(this.eventTitleBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.descBox);
             this.Name = "UserAddEvent";
             this.Text = "UserAddEvent";
             this.Load += new System.EventHandler(this.UserAddEvent_Load);
@@ -155,12 +156,12 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox descBox;
+        private System.Windows.Forms.TextBox timeBox;
+        private System.Windows.Forms.TextBox dateBox;
+        private System.Windows.Forms.TextBox eventTitleBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

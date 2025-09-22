@@ -32,18 +32,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.eventDateBox = new System.Windows.Forms.TextBox();
+            this.eventTitleBox = new System.Windows.Forms.TextBox();
+            this.eventTimeBox = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.descBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.participantList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -86,35 +86,26 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Participants: ";
             // 
-            // listView1
+            // eventDateBox
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(522, 28);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(236, 410);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.eventDateBox.Location = new System.Drawing.Point(172, 56);
+            this.eventDateBox.Name = "eventDateBox";
+            this.eventDateBox.Size = new System.Drawing.Size(193, 22);
+            this.eventDateBox.TabIndex = 6;
             // 
-            // textBox1
+            // eventTitleBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(172, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 6;
+            this.eventTitleBox.Location = new System.Drawing.Point(172, 28);
+            this.eventTitleBox.Name = "eventTitleBox";
+            this.eventTitleBox.Size = new System.Drawing.Size(193, 22);
+            this.eventTitleBox.TabIndex = 7;
             // 
-            // textBox2
+            // eventTimeBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(172, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(172, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 8;
+            this.eventTimeBox.Location = new System.Drawing.Point(172, 84);
+            this.eventTimeBox.Name = "eventTimeBox";
+            this.eventTimeBox.Size = new System.Drawing.Size(193, 22);
+            this.eventTimeBox.TabIndex = 8;
             // 
             // checkBox1
             // 
@@ -156,13 +147,13 @@
             this.textBox4.TabIndex = 12;
             this.textBox4.Text = "Insert Participant name";
             // 
-            // textBox5
+            // descBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(172, 142);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(193, 296);
-            this.textBox5.TabIndex = 13;
+            this.descBox.Location = new System.Drawing.Point(172, 142);
+            this.descBox.Multiline = true;
+            this.descBox.Name = "descBox";
+            this.descBox.Size = new System.Drawing.Size(193, 296);
+            this.descBox.TabIndex = 13;
             // 
             // label4
             // 
@@ -192,23 +183,32 @@
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // participantList
+            // 
+            this.participantList.FormattingEnabled = true;
+            this.participantList.ItemHeight = 16;
+            this.participantList.Location = new System.Drawing.Point(545, 30);
+            this.participantList.Name = "participantList";
+            this.participantList.Size = new System.Drawing.Size(234, 404);
+            this.participantList.TabIndex = 17;
+            // 
             // ManagerAddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.participantList);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.descBox);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.eventTimeBox);
+            this.Controls.Add(this.eventTitleBox);
+            this.Controls.Add(this.eventDateBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -227,17 +227,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox eventDateBox;
+        private System.Windows.Forms.TextBox eventTitleBox;
+        private System.Windows.Forms.TextBox eventTimeBox;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox descBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListBox participantList;
     }
 }
