@@ -33,5 +33,26 @@ namespace groupProject
         {
 
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
+            // Simple hardcoded authentication for demonstration purposes
+            if (username == "admin" && password == "password")
+            {
+                // Successful login
+                UserMenu userMenu = new UserMenu();
+                userMenu.Show();
+                this.Hide();
+            }
+            else
+            {
+                // Failed login
+                label2.Text = "Username/Password incorrect.";
+            }
+
+            //something
+        }
     }
 }
