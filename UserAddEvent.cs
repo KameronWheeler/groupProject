@@ -35,11 +35,6 @@ namespace groupProject
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            UserMenu userMenuForm = new UserMenu();
-            userMenuForm.Show();
-            this.Hide();
-        }
+       
     }
 }
