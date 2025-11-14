@@ -19,7 +19,7 @@ namespace groupProject
         public LoginPage()
         {
             InitializeComponent();
-            //label2.Text = "";
+            label2.Text = "";
             //label2.Text = "Username/Password incorrect.";
         }
 
