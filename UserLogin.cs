@@ -50,6 +50,10 @@ namespace groupProject
             {
                 // Failed login
                 label2.Text = "Username/Password incorrect.";
+
+                UserMenu userMenu = new UserMenu();
+                userMenu.Show();
+                this.Hide();
             }
 
             //something new

@@ -31,5 +31,12 @@ namespace groupProject
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserMenu userMenuForm = new UserMenu();
+            userMenuForm.Show();
+            this.Hide();
+        }
     }
 }

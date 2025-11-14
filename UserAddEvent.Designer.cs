@@ -42,9 +42,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(24, 386);
+            this.button4.Location = new System.Drawing.Point(18, 314);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 23);
+            this.button4.Size = new System.Drawing.Size(115, 19);
             this.button4.TabIndex = 32;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(24, 340);
+            this.button3.Location = new System.Drawing.Point(18, 276);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 23);
+            this.button3.Size = new System.Drawing.Size(115, 19);
             this.button3.TabIndex = 31;
             this.button3.Text = "Save event";
             this.button3.UseVisualStyleBackColor = true;
@@ -64,48 +66,54 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(72, 138);
+            this.label4.Location = new System.Drawing.Point(54, 112);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 20);
+            this.label4.Size = new System.Drawing.Size(87, 17);
             this.label4.TabIndex = 30;
             this.label4.Text = "Description: ";
             // 
             // descBox
             // 
-            this.descBox.Location = new System.Drawing.Point(183, 138);
+            this.descBox.Location = new System.Drawing.Point(137, 112);
+            this.descBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.descBox.Multiline = true;
             this.descBox.Name = "descBox";
-            this.descBox.Size = new System.Drawing.Size(193, 296);
+            this.descBox.Size = new System.Drawing.Size(146, 241);
             this.descBox.TabIndex = 29;
             // 
             // timeBox
             // 
-            this.timeBox.Location = new System.Drawing.Point(131, 83);
+            this.timeBox.Location = new System.Drawing.Point(98, 67);
+            this.timeBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.timeBox.Name = "timeBox";
-            this.timeBox.Size = new System.Drawing.Size(245, 22);
+            this.timeBox.Size = new System.Drawing.Size(185, 20);
             this.timeBox.TabIndex = 38;
             // 
             // dateBox
             // 
-            this.dateBox.Location = new System.Drawing.Point(131, 55);
+            this.dateBox.Location = new System.Drawing.Point(98, 45);
+            this.dateBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateBox.Name = "dateBox";
-            this.dateBox.Size = new System.Drawing.Size(245, 22);
+            this.dateBox.Size = new System.Drawing.Size(185, 20);
             this.dateBox.TabIndex = 37;
             // 
             // eventTitleBox
             // 
-            this.eventTitleBox.Location = new System.Drawing.Point(131, 27);
+            this.eventTitleBox.Location = new System.Drawing.Point(98, 22);
+            this.eventTitleBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.eventTitleBox.Name = "eventTitleBox";
-            this.eventTitleBox.Size = new System.Drawing.Size(245, 22);
+            this.eventTitleBox.Size = new System.Drawing.Size(185, 20);
             this.eventTitleBox.TabIndex = 36;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 83);
+            this.label5.Location = new System.Drawing.Point(22, 67);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.Size = new System.Drawing.Size(47, 17);
             this.label5.TabIndex = 35;
             this.label5.Text = "Time: ";
             // 
@@ -113,9 +121,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 55);
+            this.label6.Location = new System.Drawing.Point(22, 45);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.Size = new System.Drawing.Size(46, 17);
             this.label6.TabIndex = 34;
             this.label6.Text = "Date: ";
             // 
@@ -123,17 +132,18 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 27);
+            this.label7.Location = new System.Drawing.Point(22, 22);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 20);
+            this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 33;
             this.label7.Text = "Event Title: ";
             // 
             // UserAddEvent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 450);
+            this.ClientSize = new System.Drawing.Size(303, 366);
             this.Controls.Add(this.timeBox);
             this.Controls.Add(this.dateBox);
             this.Controls.Add(this.eventTitleBox);
@@ -144,6 +154,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.descBox);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UserAddEvent";
             this.Text = "UserAddEvent";
             this.Load += new System.EventHandler(this.UserAddEvent_Load);

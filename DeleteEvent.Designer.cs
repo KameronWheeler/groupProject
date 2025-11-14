@@ -45,7 +45,7 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox3.Location = new System.Drawing.Point(92, 72);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(166, 20);
             this.textBox3.TabIndex = 30;
@@ -54,7 +54,7 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox2.Location = new System.Drawing.Point(92, 27);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(166, 20);
             this.textBox2.TabIndex = 29;
@@ -63,7 +63,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox1.Location = new System.Drawing.Point(92, 50);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(166, 20);
             this.textBox1.TabIndex = 28;
@@ -116,7 +116,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(32, 125);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 31);
             this.button1.TabIndex = 32;
@@ -126,18 +126,19 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(110, 125);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 31);
             this.button2.TabIndex = 33;
             this.button2.Text = "No";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox4.Location = new System.Drawing.Point(387, 11);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(191, 180);
@@ -171,7 +172,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DeleteEvent";
             this.Text = "Confirm deletion?";
             this.Load += new System.EventHandler(this.DeleteEvent_Load);
