@@ -27,5 +27,12 @@ namespace groupProject
         {
             Application.Exit();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            UserAddEvent addEventForm = new UserAddEvent();
+            addEventForm.Show();
+            this.Hide();
+        }
     }
 }
