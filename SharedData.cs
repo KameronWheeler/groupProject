@@ -11,5 +11,7 @@ namespace groupProject
         public static string MySharedString { get; set; }
 
         public static bool isManager { get; set; }
+
+        public static string selectedDate { get; set; }
     }
 }

@@ -57,5 +57,11 @@ namespace groupProject
             deleteEventForm.Show();
             this.Hide();
         }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            Console.WriteLine("Selected date: " + e.Start.ToShortDateString());
+            CurrentUser.selectedDate = e.Start.ToShortDateString();
+        }
     }
 }
