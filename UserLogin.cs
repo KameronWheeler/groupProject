@@ -61,6 +61,14 @@ namespace groupProject
                     if (password == myReader["Password"].ToString())
                     {
                         // Successful login
+                        if (myReader["isManager"].ToString().Equals("1"))
+                        {
+                            CurrentUser.isManager = true;
+                        } else
+                        {
+                            CurrentUser.isManager = false;
+                        }
+
                         UserMenu userMenu = new UserMenu();
                         userMenu.Show();
                         this.Hide();

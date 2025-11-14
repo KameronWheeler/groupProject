@@ -16,6 +16,7 @@ namespace groupProject
         {
             InitializeComponent();
             String User = CurrentUser.MySharedString;
+            Console.WriteLine("Current User: " + User + " isManager: " + CurrentUser.isManager);
             label1.Text = "Welcome, " + User;
         }
 

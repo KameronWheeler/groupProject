@@ -108,7 +108,7 @@
     <Compile Include="EditEvents.Designer.cs">
       <DependentUpon>EditEvents.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShardedData.cs" />
+    <Compile Include="SharedData.cs" />
     <Compile Include="SQLConnection.cs" />
     <Compile Include="UserLogin.cs">
       <SubType>Form</SubType>
