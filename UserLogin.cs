@@ -77,8 +77,12 @@ namespace groupProject
                         // Failed login
                         label2.Text = "Username/Password incorrect.";
                     }
+                }else
+                {
+                    // Failed login
+                    label2.Text = "Username/Password incorrect.";
                 }
-                myReader.Close();
+                    myReader.Close();
             }
             catch (Exception ex)
             {
