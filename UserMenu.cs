@@ -15,7 +15,8 @@ namespace groupProject
         public UserMenu()
         {
             InitializeComponent();
-            label1.Text = "Welcome, Nate";
+            String User = CurrentUser.MySharedString;
+            label1.Text = "Welcome, " + User;
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace groupProject
 {
+
     public partial class LoginPage : Form
     {
         public LoginPage()
@@ -56,6 +57,7 @@ namespace groupProject
                 MySqlDataReader myReader = cmd.ExecuteReader();
                 if (myReader.Read())
                 {
+                    CurrentUser.MySharedString = myReader["Name"].ToString();
                     if (password == myReader["Password"].ToString())
                     {
                         // Successful login
