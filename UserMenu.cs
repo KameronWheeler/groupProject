@@ -55,5 +55,15 @@ namespace groupProject
             deleteEventForm.Show();
             this.Hide();
         }
+
+        private void UserMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

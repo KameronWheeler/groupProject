@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Org.BouncyCastle.Tls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,7 +17,7 @@ namespace groupProject
         public UserAddEvent()
         {
             InitializeComponent();
-           
+
         }
 
         private void UserAddEvent_Load(object sender, EventArgs e)
@@ -25,16 +27,29 @@ namespace groupProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e) //cancel selected
         {
-            UserMenu userMenu = new UserMenu();
-            userMenu.Show();
             this.Hide();
+            var menu = Application.OpenForms.OfType<UserMenu>().FirstOrDefault();
+            menu.Show();
+            menu.BringToFront();
+            menu.Activate();
         }
 
        
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+
+
+
+
+
     }
 }
