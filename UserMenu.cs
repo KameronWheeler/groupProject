@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,9 +17,47 @@ namespace groupProject
         public UserMenu()
         {
             InitializeComponent();
-            String User = CurrentUser.MySharedString;
+            // load todays events to start
+            LoadEventTitlesForSelectedDate();
+            string User = CurrentUser.MySharedString;
             Console.WriteLine("Current User: " + User + " isManager: " + CurrentUser.isManager);
             label1.Text = "Welcome, " + User;
+
+        }
+
+        public void LoadEventTitlesForSelectedDate()
+        {
+            string connectionString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    DateTime selectedDate = monthCalendar1.SelectionStart.Date;
+                    DateTime nextDate = selectedDate.AddDays(1);
+
+                    string query = "SELECT title FROM groupjnk_event WHERE dateTime >= @startDate AND dateTime < @endDate";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@startDate", selectedDate);
+                    cmd.Parameters.AddWithValue("@endDate", nextDate);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        eventBox.Items.Clear();
+
+                        while (reader.Read())
+                        {
+                            eventBox.Items.Add(reader["title"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -60,8 +100,7 @@ namespace groupProject
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            Console.WriteLine("Selected date: " + e.Start.ToShortDateString());
-            CurrentUser.selectedDate = e.Start.ToShortDateString();
+            LoadEventTitlesForSelectedDate();
         }
 
         private void UserMenu_Load(object sender, EventArgs e)
