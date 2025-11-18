@@ -96,7 +96,6 @@ namespace groupProject
             conn.Close();
             Console.WriteLine("Done.");
 
-            //Something random
         }
     }
 }
