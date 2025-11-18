@@ -91,10 +91,19 @@ namespace groupProject
         private void button5_Click(object sender, EventArgs e)
         {
 
-            UserAddEvent addEventForm = new UserAddEvent();
+            
             CurrentUser.selectedDate = monthCalendar1.SelectionStart.Date;
-
-            addEventForm.Show();
+            if(CurrentUser.isManager)
+            {
+                ManagerAddEvent addEventForm = new ManagerAddEvent();
+                addEventForm.Show();
+            }
+            else
+            {
+                UserAddEvent addEventForm = new UserAddEvent();
+                addEventForm.Show();
+            }
+                
             this.Hide();
         }
 
