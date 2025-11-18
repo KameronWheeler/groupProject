@@ -8,7 +8,6 @@ namespace groupProject
 {
     public static class CurrentUser
     {
-        
 
         public static string MySharedString { get; set; }
 

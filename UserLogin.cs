@@ -19,6 +19,9 @@ namespace groupProject
         public LoginPage()
         {
             InitializeComponent();
+            // enter logs in
+            this.AcceptButton = loginButton;
+
             label2.Text = "";
             //label2.Text = "Username/Password incorrect.";
         }

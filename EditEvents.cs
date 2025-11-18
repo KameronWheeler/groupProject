@@ -20,6 +20,8 @@ namespace groupProject
             selectedEventId = eventId;
             EditEvents_Load(this, EventArgs.Empty);
         }
+
+        // load event info into boxes to edit
         private void EditEvents_Load(object sender, EventArgs e)
         {
             string connectionString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -80,7 +82,7 @@ namespace groupProject
                     cmd.Parameters.AddWithValue("@title", titleBox.Text);
                     cmd.Parameters.AddWithValue("@dateTime", updatedDateTime);
                     cmd.Parameters.AddWithValue("@description", descriptionBox.Text);
-                    cmd.Parameters.AddWithValue("@location", locationBox.Text); // new line
+                    cmd.Parameters.AddWithValue("@location", locationBox.Text);
                     cmd.Parameters.AddWithValue("@id", selectedEventId);
 
                     cmd.ExecuteNonQuery();

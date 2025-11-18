@@ -121,6 +121,17 @@ namespace groupProject
             // get the id for this event
             int id = getId(title);
 
+
+            // check if this event is a company event
+            bool isCompanyEvent = IsCompanyEvent(id);
+
+            // if a user is not a manager, they cannot edit company events
+            if (isCompanyEvent && !CurrentUser.isManager)
+            {
+                MessageBox.Show("You do not have permission to edit company-wide events.");
+                return;
+            }
+
             EditEvents editEventsForm = new EditEvents(id);
             editEventsForm.Show();
             this.Hide();
@@ -166,9 +177,49 @@ namespace groupProject
             return eventId;
         }
 
+        // helper function to check if event is company event
+        private bool IsCompanyEvent(int eventId)
+        {
+            string connectionString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+            bool companyEvent = false;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "SELECT companyEvent FROM groupjnk_event WHERE eventId = @eventId";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@eventId", eventId);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    companyEvent = Convert.ToBoolean(result);
+                }
+            }
+
+            return companyEvent;
+        }
+
+
+        // go to delete events
         private void button3_Click(object sender, EventArgs e)
         {
-            DeleteEvent deleteEventForm = new DeleteEvent();
+            string title = eventBox.SelectedItem.ToString();
+            // get the id for this event
+            int id = getId(title);
+
+            // check if this event is a company event
+            bool isCompanyEvent = IsCompanyEvent(id);
+
+            // if a user is not a manager, they cannot edit company events
+            if (isCompanyEvent && !CurrentUser.isManager)
+            {
+                MessageBox.Show("You do not have permission to edit company-wide events.");
+                return;
+            }
+
+            DeleteEvent deleteEventForm = new DeleteEvent(id);
             deleteEventForm.Show();
             this.Hide();
         }
