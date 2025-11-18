@@ -57,7 +57,9 @@ namespace groupProject
                 MySqlDataReader myReader = cmd.ExecuteReader();
                 if (myReader.Read())
                 {
+                    // store important info
                     CurrentUser.MySharedString = myReader["Name"].ToString();
+                    CurrentUser.id = Convert.ToInt32(myReader["userID"]);
                     if (password == myReader["Password"].ToString())
                     {
                         // Successful login

@@ -14,9 +14,12 @@ namespace groupProject
 {
     public partial class UserMenu : Form
     {
+        // current user's id
+        private int id;
         public UserMenu()
         {
             InitializeComponent();
+            id = CurrentUser.id;
             // load todays events to start
             LoadEventTitlesForSelectedDate();
             string User = CurrentUser.MySharedString;
@@ -38,10 +41,24 @@ namespace groupProject
                     DateTime selectedDate = monthCalendar1.SelectionStart.Date;
                     DateTime nextDate = selectedDate.AddDays(1);
 
-                    string query = "SELECT title FROM groupjnk_event WHERE dateTime >= @startDate AND dateTime < @endDate";
+                    string query = @"
+                SELECT DISTINCT e.title
+                FROM groupjnk_event e
+                LEFT JOIN groupjnk_created_event ce
+                    ON e.eventId = ce.eventId
+                WHERE
+                    e.dateTime >= @startDate
+                    AND e.dateTime < @endDate
+                    AND (
+                        e.companyEvent = 1      -- company event
+                        OR ce.userId = @userId  -- this user's event
+                    );
+            ";
+
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@startDate", selectedDate);
                     cmd.Parameters.AddWithValue("@endDate", nextDate);
+                    cmd.Parameters.AddWithValue("@userId", id);  // use your existing ID
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -59,6 +76,7 @@ namespace groupProject
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
