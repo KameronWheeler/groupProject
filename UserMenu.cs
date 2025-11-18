@@ -90,7 +90,10 @@ namespace groupProject
 
         private void button5_Click(object sender, EventArgs e)
         {
+
             UserAddEvent addEventForm = new UserAddEvent();
+            CurrentUser.selectedDate = monthCalendar1.SelectionStart.Date;
+
             addEventForm.Show();
             this.Hide();
         }
