@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using groupProject;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,16 +106,22 @@ namespace groupProject
                 {
                     conn.Open();
 
-                    string query = "DELETE FROM groupjnk_event WHERE eventId = @eventId";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@eventId", selectedEventId);
+                    // delete from the created event first
+                    string deleteMapping = "DELETE FROM groupjnk_created_event WHERE eventId = @eventId";
+                    MySqlCommand cmd1 = new MySqlCommand(deleteMapping, conn);
+                    cmd1.Parameters.AddWithValue("@eventId", selectedEventId);
+                    cmd1.ExecuteNonQuery(); // mapping might be 1 row, might be more, or 0
 
-                    int rowsDeleted = cmd.ExecuteNonQuery();
+                    // delete from event table
+                    string deleteEvent = "DELETE FROM groupjnk_event WHERE eventId = @eventId";
+                    MySqlCommand cmd2 = new MySqlCommand(deleteEvent, conn);
+                    cmd2.Parameters.AddWithValue("@eventId", selectedEventId);
+
+                    int rowsDeleted = cmd2.ExecuteNonQuery();
 
                     if (rowsDeleted > 0)
                     {
                         MessageBox.Show("Event deleted successfully.");
-                        this.Close(); // close EditEvents
                     }
                     else
                     {
@@ -126,12 +133,14 @@ namespace groupProject
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
             // go back to user menu
             this.Hide();
             UserMenu userMenuForm = new UserMenu();
             userMenuForm.Show();
             this.Hide();
         }
+
 
     }
 }
