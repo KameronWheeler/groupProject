@@ -29,7 +29,7 @@ namespace groupProject
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT title, dateTime, description FROM groupjnk_event WHERE eventId = @id";
+                    string query = "SELECT title, dateTime, description, location FROM groupjnk_event WHERE eventId = @id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", selectedEventId);
 
@@ -37,14 +37,14 @@ namespace groupProject
                     {
                         if (reader.Read())
                         {
-                            // populate the textboxes
                             titleBox.Text = reader["title"].ToString();
 
                             DateTime dt = Convert.ToDateTime(reader["dateTime"]);
-                            dateBox.Text = dt.ToString("yyyy-MM-dd"); // date only
-                            timeBox.Text = dt.ToString("HH:mm");       // time only
+                            dateBox.Text = dt.ToString("yyyy-MM-dd");
+                            timeBox.Text = dt.ToString("HH:mm");
 
                             descriptionBox.Text = reader["description"].ToString();
+                            locationBox.Text = reader["location"].ToString(); // new line
                         }
                         else
                         {
@@ -59,6 +59,7 @@ namespace groupProject
             }
         }
 
+
         private void saveButton_Click_1(object sender, EventArgs e)
         {
             string connectionString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -69,18 +70,18 @@ namespace groupProject
                 {
                     conn.Open();
 
-                    // combine date and time from textboxes
                     DateTime updatedDateTime = DateTime.Parse(dateBox.Text + " " + timeBox.Text);
 
                     string query = @"UPDATE groupjnk_event
-                             SET title = @title, dateTime = @dateTime, description = @description
+                             SET title = @title, dateTime = @dateTime, description = @description, location = @location
                              WHERE eventId = @id";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@title", titleBox.Text);
                     cmd.Parameters.AddWithValue("@dateTime", updatedDateTime);
                     cmd.Parameters.AddWithValue("@description", descriptionBox.Text);
-                    cmd.Parameters.AddWithValue("@id", selectedEventId); // cannot be edited
+                    cmd.Parameters.AddWithValue("@location", locationBox.Text); // new line
+                    cmd.Parameters.AddWithValue("@id", selectedEventId);
 
                     cmd.ExecuteNonQuery();
 
@@ -100,6 +101,11 @@ namespace groupProject
             UserMenu userMenuForm = new UserMenu();
             userMenuForm.Show();
             this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

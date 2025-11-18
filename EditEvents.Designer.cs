@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dismissButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.locationBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // timeBox
@@ -63,7 +65,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(141, 477);
+            this.saveButton.Location = new System.Drawing.Point(141, 539);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(138, 48);
             this.saveButton.TabIndex = 14;
@@ -73,7 +75,7 @@
             // 
             // descriptionBox
             // 
-            this.descriptionBox.Location = new System.Drawing.Point(141, 158);
+            this.descriptionBox.Location = new System.Drawing.Point(141, 223);
             this.descriptionBox.Multiline = true;
             this.descriptionBox.Name = "descriptionBox";
             this.descriptionBox.Size = new System.Drawing.Size(276, 310);
@@ -83,7 +85,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 158);
+            this.label4.Location = new System.Drawing.Point(28, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 25);
             this.label4.TabIndex = 12;
@@ -121,7 +123,7 @@
             // 
             // dismissButton
             // 
-            this.dismissButton.Location = new System.Drawing.Point(280, 477);
+            this.dismissButton.Location = new System.Drawing.Point(279, 539);
             this.dismissButton.Name = "dismissButton";
             this.dismissButton.Size = new System.Drawing.Size(138, 48);
             this.dismissButton.TabIndex = 18;
@@ -129,11 +131,31 @@
             this.dismissButton.UseVisualStyleBackColor = true;
             this.dismissButton.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(28, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 25);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Location:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // locationBox
+            // 
+            this.locationBox.Location = new System.Drawing.Point(141, 144);
+            this.locationBox.Name = "locationBox";
+            this.locationBox.Size = new System.Drawing.Size(276, 26);
+            this.locationBox.TabIndex = 20;
+            // 
             // EditEvents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 563);
+            this.ClientSize = new System.Drawing.Size(444, 609);
+            this.Controls.Add(this.locationBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dismissButton);
             this.Controls.Add(this.timeBox);
             this.Controls.Add(this.dateBox);
@@ -163,5 +185,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button dismissButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox locationBox;
     }
 }
