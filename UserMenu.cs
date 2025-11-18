@@ -157,9 +157,14 @@ namespace groupProject
             return eventId;
         }
 
+        // go to delete events
         private void button3_Click(object sender, EventArgs e)
         {
-            DeleteEvent deleteEventForm = new DeleteEvent();
+            string title = eventBox.SelectedItem.ToString();
+            // get the id for this event
+            int id = getId(title);
+
+            DeleteEvent deleteEventForm = new DeleteEvent(id);
             deleteEventForm.Show();
             this.Hide();
         }
