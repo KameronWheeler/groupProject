@@ -14,6 +14,8 @@ namespace groupProject
 
         public static bool isManager { get; set; }
 
-        public static DateTime selectedDate { get; set; }
+        public static string selectedDate { get; set; }
+
+        public static int id { get; set; }
     }
 }
