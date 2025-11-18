@@ -15,7 +15,9 @@ namespace groupProject
         public UserMenu()
         {
             InitializeComponent();
-            label1.Text = "Welcome, Nate";
+            String User = CurrentUser.MySharedString;
+            Console.WriteLine("Current User: " + User + " isManager: " + CurrentUser.isManager);
+            label1.Text = "Welcome, " + User;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -54,6 +56,12 @@ namespace groupProject
             DeleteEvent deleteEventForm = new DeleteEvent();
             deleteEventForm.Show();
             this.Hide();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            Console.WriteLine("Selected date: " + e.Start.ToShortDateString());
+            CurrentUser.selectedDate = e.Start.ToShortDateString();
         }
 
         private void UserMenu_Load(object sender, EventArgs e)
