@@ -109,7 +109,6 @@
       <DependentUpon>EditEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="SharedData.cs" />
-    <Compile Include="SQLConnection.cs" />
     <Compile Include="UserLogin.cs">
       <SubType>Form</SubType>
     </Compile>
