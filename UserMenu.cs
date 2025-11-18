@@ -84,11 +84,56 @@ namespace groupProject
             this.Hide();
         }
 
+        // go to edit events
         private void button2_Click(object sender, EventArgs e)
         {
-            EditEvents editEventsForm = new EditEvents();
+            string title = eventBox.SelectedItem.ToString();
+            // get the id for this event
+            int id = getId(title);
+
+            EditEvents editEventsForm = new EditEvents(id);
             editEventsForm.Show();
             this.Hide();
+        }
+
+        // get id for viewing, editing, or deleting
+        private int getId(string title)
+        {
+            if (string.IsNullOrEmpty(title))
+            {
+                MessageBox.Show("Please select an event first.");
+                return -1;
+            }
+
+            int eventId = -1;
+            string connectionString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT eventId FROM groupjnk_event WHERE title = @title LIMIT 1"; // get the id for this title
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@title", title);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        eventId = Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Event not found in database.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return eventId;
         }
 
         private void button3_Click(object sender, EventArgs e)

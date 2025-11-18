@@ -28,69 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.timeBox = new System.Windows.Forms.TextBox();
+            this.dateBox = new System.Windows.Forms.TextBox();
+            this.titleBox = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.descriptionBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.dismissButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox4
+            // timeBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(94, 71);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(185, 20);
-            this.textBox4.TabIndex = 17;
+            this.timeBox.Location = new System.Drawing.Point(141, 109);
+            this.timeBox.Name = "timeBox";
+            this.timeBox.Size = new System.Drawing.Size(276, 26);
+            this.timeBox.TabIndex = 17;
             // 
-            // textBox3
+            // dateBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(94, 48);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 20);
-            this.textBox3.TabIndex = 16;
+            this.dateBox.Location = new System.Drawing.Point(141, 74);
+            this.dateBox.Name = "dateBox";
+            this.dateBox.Size = new System.Drawing.Size(276, 26);
+            this.dateBox.TabIndex = 16;
             // 
-            // textBox2
+            // titleBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(94, 25);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 20);
-            this.textBox2.TabIndex = 15;
+            this.titleBox.Location = new System.Drawing.Point(141, 38);
+            this.titleBox.Name = "titleBox";
+            this.titleBox.Size = new System.Drawing.Size(276, 26);
+            this.titleBox.TabIndex = 15;
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Location = new System.Drawing.Point(94, 310);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 31);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Save Changes";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Location = new System.Drawing.Point(141, 477);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(138, 48);
+            this.saveButton.TabIndex = 14;
+            this.saveButton.Text = "Save Changes";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
             // 
-            // textBox1
+            // descriptionBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 103);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 203);
-            this.textBox1.TabIndex = 13;
+            this.descriptionBox.Location = new System.Drawing.Point(141, 158);
+            this.descriptionBox.Multiline = true;
+            this.descriptionBox.Name = "descriptionBox";
+            this.descriptionBox.Size = new System.Drawing.Size(276, 310);
+            this.descriptionBox.TabIndex = 13;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 103);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(28, 158);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 17);
+            this.label4.Size = new System.Drawing.Size(115, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "Description:";
             // 
@@ -98,10 +93,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 71);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(28, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 17);
+            this.label3.Size = new System.Drawing.Size(67, 25);
             this.label3.TabIndex = 11;
             this.label3.Text = "Time: ";
             // 
@@ -109,10 +103,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 48);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(28, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(64, 25);
             this.label2.TabIndex = 10;
             this.label2.Text = "Date: ";
             // 
@@ -120,40 +113,37 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(28, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 17);
+            this.label1.Size = new System.Drawing.Size(115, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Event Title: ";
             // 
-            // button2
+            // dismissButton
             // 
-            this.button2.Location = new System.Drawing.Point(187, 310);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 31);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Dismiss";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.dismissButton.Location = new System.Drawing.Point(280, 477);
+            this.dismissButton.Name = "dismissButton";
+            this.dismissButton.Size = new System.Drawing.Size(138, 48);
+            this.dismissButton.TabIndex = 18;
+            this.dismissButton.Text = "Dismiss";
+            this.dismissButton.UseVisualStyleBackColor = true;
+            this.dismissButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // EditEvents
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 366);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(444, 563);
+            this.Controls.Add(this.dismissButton);
+            this.Controls.Add(this.timeBox);
+            this.Controls.Add(this.dateBox);
+            this.Controls.Add(this.titleBox);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.descriptionBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EditEvents";
             this.Text = "EditEvents";
             this.ResumeLayout(false);
@@ -163,15 +153,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox timeBox;
+        private System.Windows.Forms.TextBox dateBox;
+        private System.Windows.Forms.TextBox titleBox;
+        private System.Windows.Forms.TextBox descriptionBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button dismissButton;
     }
 }
