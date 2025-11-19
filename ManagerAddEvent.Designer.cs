@@ -90,8 +90,10 @@
             // 
             // eventDateBox
             // 
+            this.eventDateBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.eventDateBox.Location = new System.Drawing.Point(172, 56);
             this.eventDateBox.Name = "eventDateBox";
+            this.eventDateBox.ReadOnly = true;
             this.eventDateBox.Size = new System.Drawing.Size(193, 22);
             this.eventDateBox.TabIndex = 6;
             // 
@@ -180,6 +182,7 @@
             this.button4.TabIndex = 16;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // participantList
             // 
@@ -196,6 +199,7 @@
             this.eventLocationBox.Name = "eventLocationBox";
             this.eventLocationBox.Size = new System.Drawing.Size(193, 22);
             this.eventLocationBox.TabIndex = 18;
+            this.eventLocationBox.TextChanged += new System.EventHandler(this.eventLocationBox_TextChanged);
             // 
             // label6
             // 

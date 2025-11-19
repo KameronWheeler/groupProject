@@ -26,7 +26,11 @@ namespace groupProject
 
         private void ManagerAddEvent_Load(object sender, EventArgs e)
         {
-
+            eventDateBox.Text = CurrentUser.selectedDate.ToString("MM/dd/yyyy");
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "hh:mm tt";
+            dateTimePicker1.ShowUpDown = true;
+            anyEventBox_TextChanged(sender, e);//initial check to enable/disable save button
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -39,9 +43,21 @@ namespace groupProject
 
         }
 
+        private void anyEventBox_TextChanged(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(eventTitleBox.Text) || String.IsNullOrWhiteSpace(eventLocationBox.Text))
+            {//enabled so long as both title and location are not empty or whitespace
+                button3.Enabled = false;
+            }
+            else
+            {
+                button3.Enabled = true;
+            }
+        }
+
         private void eventTitleBox_TextChanged(object sender, EventArgs e)
         {
-
+            anyEventBox_TextChanged(sender, e);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -55,11 +71,12 @@ namespace groupProject
             {
                 MessageBox.Show("Event title cannot be empty or whitespace.");
             }
+            
 
 
 
 
-            DateTime datePart;
+                DateTime datePart;
             if (!DateTime.TryParse(eventDateBox.Text, out datePart))
             {
                 MessageBox.Show("Invalid date format. Please enter a valid date.");
@@ -174,5 +191,18 @@ namespace groupProject
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var menu = Application.OpenForms.OfType<UserMenu>().FirstOrDefault();
+            menu.Show();
+            menu.BringToFront();
+            menu.Activate();
+        }
+
+        private void eventLocationBox_TextChanged(object sender, EventArgs e)
+        {
+            anyEventBox_TextChanged(sender, e);
+        }
     }
 }
