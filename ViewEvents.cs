@@ -50,19 +50,20 @@ namespace groupProject
                     using (MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connectionString))
                     {
                         conn.Open();
-                        string query = "SELECT description, dateTime FROM groupjnk_event WHERE title = @title";
+                        string query = "SELECT location, description, dateTime FROM groupjnk_event WHERE title = @title";
                         MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
                         cmd.Parameters.AddWithValue("@title", selectedEventTitle);
-                        cmd.Parameters.AddWithValue("@userId", id);
                         using (MySql.Data.MySqlClient.MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
                                 string description = reader["description"].ToString();
                                 DateTime eventDateTime = Convert.ToDateTime(reader["dateTime"]);
+                                string Location = reader["location"].ToString();
                                 textBox1.Text = description;
                                 textBox3.Text = eventDateTime.ToString("MM/dd/yyyy");
                                 textBox4.Text = eventDateTime.ToString("hh:mm tt");
+                                textBox5.Text = Location;
                             }
                             else
                             {
