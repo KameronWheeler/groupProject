@@ -29,6 +29,7 @@ namespace groupProject
 
         }
 
+        // load event info
         private void DeleteEvent_Load(object sender, EventArgs e)
         {
             string connectionString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -38,16 +39,19 @@ namespace groupProject
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
+                    // get event info
                     string query = "SELECT title, dateTime, description, location FROM groupjnk_event WHERE eventId = @id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", selectedEventId);
 
+                    // execute query
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
                             titleBox.Text = reader["title"].ToString();
 
+                            // parse date and time
                             DateTime dt = Convert.ToDateTime(reader["dateTime"]);
                             dateBox.Text = dt.ToString("yyyy-MM-dd");
                             timeBox.Text = dt.ToString("HH:mm");
@@ -87,8 +91,10 @@ namespace groupProject
 
         }
 
+        // delete event from database
         private void button1_Click(object sender, EventArgs e)
         {
+            // confirm deletion
             DialogResult result = MessageBox.Show(
                 "Are you sure you want to delete this event?",
                 "Confirm Delete",
@@ -96,6 +102,7 @@ namespace groupProject
                 MessageBoxIcon.Warning
             );
 
+            // if no, return
             if (result != DialogResult.Yes)
                 return;
 
@@ -111,7 +118,7 @@ namespace groupProject
                     string deleteMapping = "DELETE FROM groupjnk_created_event WHERE eventId = @eventId";
                     MySqlCommand cmd1 = new MySqlCommand(deleteMapping, conn);
                     cmd1.Parameters.AddWithValue("@eventId", selectedEventId);
-                    cmd1.ExecuteNonQuery(); // mapping might be 1 row, might be more, or 0
+                    cmd1.ExecuteNonQuery();
 
                     // delete from event table
                     string deleteEvent = "DELETE FROM groupjnk_event WHERE eventId = @eventId";

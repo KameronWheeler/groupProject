@@ -28,6 +28,7 @@ namespace groupProject
 
         }
 
+        // load event titles for selected date
         public void LoadEventTitlesForSelectedDate()
         {
             string connectionString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -38,28 +39,20 @@ namespace groupProject
                 {
                     conn.Open();
 
+                    // get selected date from calendar
                     DateTime selectedDate = monthCalendar1.SelectionStart.Date;
+                    // use full day range
                     DateTime nextDate = selectedDate.AddDays(1);
 
-                    string query = @"
-                SELECT DISTINCT e.title
-                FROM groupjnk_event e
-                LEFT JOIN groupjnk_created_event ce
-                    ON e.eventId = ce.eventId
-                WHERE
-                    e.dateTime >= @startDate
-                    AND e.dateTime < @endDate
-                    AND (
-                        e.companyEvent = 1      -- company event
-                        OR ce.userId = @userId  -- this user's event
-                    );
-            ";
+                    string query = @"SELECT DISTINCT e.title FROM groupjnk_event e LEFT JOIN groupjnk_created_event ce ON e.eventId = ce.eventId WHERE e.dateTime >= @startDate AND e.dateTime < @endDate AND (e.companyEvent = 1 OR ce.userId = @userId);";
 
+                    // prepare statement with parameters
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@startDate", selectedDate);
                     cmd.Parameters.AddWithValue("@endDate", nextDate);
-                    cmd.Parameters.AddWithValue("@userId", id);  // use your existing ID
+                    cmd.Parameters.AddWithValue("@userId", id);
 
+                    // execute query
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         eventBox.Items.Clear();
@@ -88,6 +81,7 @@ namespace groupProject
             Application.Exit();
         }
 
+        // go to add event
         private void button5_Click(object sender, EventArgs e)
         {
 
@@ -107,6 +101,7 @@ namespace groupProject
             this.Hide();
         }
 
+        // go to view events
         private void button1_Click(object sender, EventArgs e)
         {
             ViewEvents viewEventsForm = new ViewEvents();
@@ -140,6 +135,7 @@ namespace groupProject
         // get id for viewing, editing, or deleting
         private int getId(string title)
         {
+            // make sure an event is selected
             if (string.IsNullOrEmpty(title))
             {
                 MessageBox.Show("Please select an event first.");
@@ -154,7 +150,8 @@ namespace groupProject
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT eventId FROM groupjnk_event WHERE title = @title LIMIT 1"; // get the id for this title
+                    // get the id for this title
+                    string query = "SELECT eventId FROM groupjnk_event WHERE title = @title LIMIT 1";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@title", title);
 
@@ -187,6 +184,7 @@ namespace groupProject
             {
                 conn.Open();
 
+                // query to check if event is a company event
                 string query = "SELECT companyEvent FROM groupjnk_event WHERE eventId = @eventId";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@eventId", eventId);
