@@ -60,6 +60,8 @@ namespace groupProject
                         while (reader.Read())
                         {
                             eventBox.Items.Add(reader["title"].ToString());
+
+                            eventBox.SelectedIndex = 0;
                         }
                     }
                 }
@@ -105,6 +107,10 @@ namespace groupProject
         private void button1_Click(object sender, EventArgs e)
         {
             ViewEvents viewEventsForm = new ViewEvents();
+            CurrentUser.selectedDate = monthCalendar1.SelectionStart.Date;
+            CurrentUser.selectedEventTitle = eventBox.SelectedItem?.ToString();
+            Console.WriteLine(CurrentUser.selectedEventTitle);
+
             viewEventsForm.Show();
             this.Hide();
         }
