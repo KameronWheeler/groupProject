@@ -95,6 +95,14 @@ namespace groupProject
         // go to view events
         private void button1_Click(object sender, EventArgs e)
         {
+
+            // check if anything is selected
+            if (eventBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an event first.");
+                return;
+            }
+
             ViewEvents viewEventsForm = new ViewEvents();
             viewEventsForm.Show();
             this.Hide();
@@ -103,6 +111,15 @@ namespace groupProject
         // go to edit events
         private void button2_Click(object sender, EventArgs e)
         {
+
+            // check if anything is selected
+            if (eventBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an event first.");
+                return;
+            }
+
+
             string title = eventBox.SelectedItem.ToString();
             // get the id for this event
             int id = getId(title);
@@ -194,6 +211,15 @@ namespace groupProject
         // go to delete events
         private void button3_Click(object sender, EventArgs e)
         {
+
+            // check if anything is selected
+            if (eventBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an event first.");
+                return;
+            }
+
+
             string title = eventBox.SelectedItem.ToString();
             // get the id for this event
             int id = getId(title);
