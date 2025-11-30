@@ -39,7 +39,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.eventLocationBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button4
@@ -149,12 +149,12 @@
             this.label1.TabIndex = 41;
             this.label1.Text = "Location:";
             // 
-            // textBox1
+            // eventLocationBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 22);
-            this.textBox1.TabIndex = 40;
+            this.eventLocationBox.Location = new System.Drawing.Point(131, 66);
+            this.eventLocationBox.Name = "eventLocationBox";
+            this.eventLocationBox.Size = new System.Drawing.Size(245, 22);
+            this.eventLocationBox.TabIndex = 40;
             // 
             // UserAddEvent
             // 
@@ -162,7 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.eventLocationBox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.eventDateBox);
             this.Controls.Add(this.eventTitleBox);
@@ -195,6 +195,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox eventLocationBox;
     }
 }

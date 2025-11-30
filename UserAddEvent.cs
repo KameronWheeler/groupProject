@@ -56,6 +56,7 @@ namespace groupProject
 
             string title = (eventTitleBox.Text).Trim();
             string desc = (eventDescBox.Text).Trim();
+            string location = (eventLocationBox.Text).Trim();
 
             if (string.IsNullOrWhiteSpace(title))
             {
@@ -77,21 +78,25 @@ namespace groupProject
                 using (var conn = new MySqlConnection(connStr))
                 {
                     conn.Open();
-
+                    long eventID = -1;
                     using (var transaction = conn.BeginTransaction())
                     {
+                        
                         try
                         {
-                            string insertionSQL = @"insert into groupjnk_event (title, dateTime, description, ) values (@title, @dateTime, @description);";
+                            string insertionSQL = @"insert into groupjnk_event (title, dateTime, description, location, companyEvent) values (@title, @dateTime, @description, @location, @companyEvent);";
 
                             using (var command = new MySqlCommand(insertionSQL, conn, transaction))
                             {
                                 command.Parameters.AddWithValue("@title", title);
                                 command.Parameters.AddWithValue("@dateTime", date);
                                 command.Parameters.AddWithValue("@description", desc);
+                                command.Parameters.AddWithValue("@location", location);
+                                command.Parameters.AddWithValue("@companyEvent", 0); // user-created event
 
 
                                 int rowsAffected = command.ExecuteNonQuery();
+
                                 if (rowsAffected > 0)
                                 {
                                     transaction.Commit();
@@ -105,6 +110,45 @@ namespace groupProject
                                 {
                                     MessageBox.Show("Failed to add event.");
                                 }
+                                eventID = command.LastInsertedId;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                            transaction.Rollback();
+                        }
+                    }
+
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            string insertionSQL = @"insert into groupjnk_created_event (eventID, userID) values (@eventID, @userID);";
+
+                            using (var command = new MySqlCommand(insertionSQL, conn, transaction))
+                            {
+                                command.Parameters.AddWithValue("@eventID", (int)eventID);
+                                command.Parameters.AddWithValue("@userID", CurrentUser.id);
+                                
+
+
+                                int rowsAffected = command.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    transaction.Commit();
+                                    MessageBox.Show("Entry added successfully.");
+                                    this.Hide();
+                                    var menu = Application.OpenForms.OfType<UserMenu>().FirstOrDefault();
+                                    menu.Show();
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to add entry.");
+                                }
+                                
                             }
                         }
                         catch (Exception ex)

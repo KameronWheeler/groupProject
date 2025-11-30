@@ -31,21 +31,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.eventDateBox = new System.Windows.Forms.TextBox();
             this.eventTitleBox = new System.Windows.Forms.TextBox();
-            this.eventTimeBox = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.descBox = new System.Windows.Forms.TextBox();
+            this.isMeetingBox = new System.Windows.Forms.CheckBox();
+            this.eventDescBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.participantList = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.eventLocationBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -78,20 +73,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Time: ";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(408, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Participants: ";
-            // 
             // eventDateBox
             // 
+            this.eventDateBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.eventDateBox.Location = new System.Drawing.Point(172, 56);
             this.eventDateBox.Name = "eventDateBox";
+            this.eventDateBox.ReadOnly = true;
             this.eventDateBox.Size = new System.Drawing.Size(193, 22);
             this.eventDateBox.TabIndex = 6;
             // 
@@ -101,62 +88,28 @@
             this.eventTitleBox.Name = "eventTitleBox";
             this.eventTitleBox.Size = new System.Drawing.Size(193, 22);
             this.eventTitleBox.TabIndex = 7;
+            this.eventTitleBox.TextChanged += new System.EventHandler(this.eventTitleBox_TextChanged);
             // 
-            // eventTimeBox
+            // isMeetingBox
             // 
-            this.eventTimeBox.Location = new System.Drawing.Point(172, 84);
-            this.eventTimeBox.Name = "eventTimeBox";
-            this.eventTimeBox.Size = new System.Drawing.Size(193, 22);
-            this.eventTimeBox.TabIndex = 8;
+            this.isMeetingBox.AutoSize = true;
+            this.isMeetingBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.isMeetingBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isMeetingBox.Location = new System.Drawing.Point(172, 151);
+            this.isMeetingBox.Name = "isMeetingBox";
+            this.isMeetingBox.Size = new System.Drawing.Size(132, 24);
+            this.isMeetingBox.TabIndex = 9;
+            this.isMeetingBox.Text = "Is meeting? : ";
+            this.isMeetingBox.UseVisualStyleBackColor = true;
+            this.isMeetingBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox1
+            // eventDescBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(172, 151);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(132, 24);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Is meeting? : ";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button1.Location = new System.Drawing.Point(372, 83);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Add Participant";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Location = new System.Drawing.Point(372, 112);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Remove Participant";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(372, 56);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(144, 22);
-            this.textBox4.TabIndex = 12;
-            this.textBox4.Text = "Insert Participant name";
-            // 
-            // descBox
-            // 
-            this.descBox.Location = new System.Drawing.Point(172, 181);
-            this.descBox.Multiline = true;
-            this.descBox.Name = "descBox";
-            this.descBox.Size = new System.Drawing.Size(193, 257);
-            this.descBox.TabIndex = 13;
+            this.eventDescBox.Location = new System.Drawing.Point(172, 181);
+            this.eventDescBox.Multiline = true;
+            this.eventDescBox.Name = "eventDescBox";
+            this.eventDescBox.Size = new System.Drawing.Size(193, 257);
+            this.eventDescBox.TabIndex = 13;
             // 
             // label4
             // 
@@ -176,6 +129,7 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Save event";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -185,22 +139,15 @@
             this.button4.TabIndex = 16;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // participantList
+            // eventLocationBox
             // 
-            this.participantList.FormattingEnabled = true;
-            this.participantList.ItemHeight = 16;
-            this.participantList.Location = new System.Drawing.Point(545, 30);
-            this.participantList.Name = "participantList";
-            this.participantList.Size = new System.Drawing.Size(234, 404);
-            this.participantList.TabIndex = 17;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(172, 113);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 22);
-            this.textBox1.TabIndex = 18;
+            this.eventLocationBox.Location = new System.Drawing.Point(172, 113);
+            this.eventLocationBox.Name = "eventLocationBox";
+            this.eventLocationBox.Size = new System.Drawing.Size(193, 22);
+            this.eventLocationBox.TabIndex = 18;
+            this.eventLocationBox.TextChanged += new System.EventHandler(this.eventLocationBox_TextChanged);
             // 
             // label6
             // 
@@ -213,26 +160,28 @@
             this.label6.Text = "Location:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(172, 85);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(193, 22);
+            this.dateTimePicker1.TabIndex = 20;
+            // 
             // ManagerAddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(387, 450);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.participantList);
+            this.Controls.Add(this.eventLocationBox);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.descBox);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.eventTimeBox);
+            this.Controls.Add(this.eventDescBox);
+            this.Controls.Add(this.isMeetingBox);
             this.Controls.Add(this.eventTitleBox);
             this.Controls.Add(this.eventDateBox);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -249,20 +198,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox eventDateBox;
         private System.Windows.Forms.TextBox eventTitleBox;
-        private System.Windows.Forms.TextBox eventTimeBox;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox descBox;
+        private System.Windows.Forms.CheckBox isMeetingBox;
+        private System.Windows.Forms.TextBox eventDescBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListBox participantList;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox eventLocationBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
