@@ -268,5 +268,12 @@ namespace groupProject
         {
             Application.Exit();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            CurrentUser.Clear();//clear all data relating to current user
+            Application.OpenForms["LoginPage"].Show();
+            this.Hide();
+        }
     }
 }

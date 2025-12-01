@@ -26,16 +26,6 @@ namespace groupProject
             //label2.Text = "Username/Password incorrect.";
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoginPage_Load(object sender, EventArgs e)
         {
 
@@ -95,6 +85,11 @@ namespace groupProject
             }
             conn.Close();
             Console.WriteLine("Done.");
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

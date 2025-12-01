@@ -19,5 +19,16 @@ namespace groupProject
         public static string selectedEventTitle { get; set; }
 
         public static int id { get; set; }
+
+        public static void Clear() //clears stored user data during logout
+        {
+            ID = 0;
+            MySharedString = string.Empty;
+            isManager = false;
+            selectedDate = DateTime.MinValue;
+            selectedEventTitle = string.Empty;
+            id = 0;
+        }
+
     }
 }

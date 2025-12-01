@@ -175,6 +175,7 @@
             this.Controls.Add(this.eventDescBox);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserAddEvent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserAddEvent";
             this.Load += new System.EventHandler(this.UserAddEvent_Load);
             this.ResumeLayout(false);

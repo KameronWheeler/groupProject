@@ -97,9 +97,9 @@
             this.isMeetingBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.isMeetingBox.Location = new System.Drawing.Point(172, 151);
             this.isMeetingBox.Name = "isMeetingBox";
-            this.isMeetingBox.Size = new System.Drawing.Size(132, 24);
+            this.isMeetingBox.Size = new System.Drawing.Size(167, 24);
             this.isMeetingBox.TabIndex = 9;
-            this.isMeetingBox.Text = "Is meeting? : ";
+            this.isMeetingBox.Text = "Company Event? :";
             this.isMeetingBox.UseVisualStyleBackColor = true;
             this.isMeetingBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -110,6 +110,7 @@
             this.eventDescBox.Name = "eventDescBox";
             this.eventDescBox.Size = new System.Drawing.Size(193, 257);
             this.eventDescBox.TabIndex = 13;
+            this.eventDescBox.TextChanged += new System.EventHandler(this.eventDescBox_TextChanged);
             // 
             // label4
             // 
@@ -186,6 +187,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ManagerAddEvent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManagerAddEvent";
             this.Load += new System.EventHandler(this.ManagerAddEvent_Load);
             this.ResumeLayout(false);

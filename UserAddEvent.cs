@@ -100,7 +100,7 @@ namespace groupProject
                                 if (rowsAffected > 0)
                                 {
                                     transaction.Commit();
-                                    MessageBox.Show("Event added successfully.");
+                                    //MessageBox.Show("Event added successfully.");
                                     this.Hide();
                                     var menu = Application.OpenForms.OfType<UserMenu>().FirstOrDefault();
                                     menu.Show();
@@ -138,7 +138,7 @@ namespace groupProject
                                 if (rowsAffected > 0)
                                 {
                                     transaction.Commit();
-                                    MessageBox.Show("Entry added successfully.");
+                                    //MessageBox.Show("Entry added successfully.");
                                     this.Hide();
                                     var menu = Application.OpenForms.OfType<UserMenu>().FirstOrDefault();
                                     menu.Show();
