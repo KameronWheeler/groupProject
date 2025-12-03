@@ -53,7 +53,6 @@ namespace groupProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-
             string title = (eventTitleBox.Text).Trim();
             string desc = (eventDescBox.Text).Trim();
             string location = (eventLocationBox.Text).Trim();
@@ -61,16 +60,24 @@ namespace groupProject
             if (string.IsNullOrWhiteSpace(title))
             {
                 MessageBox.Show("Event title cannot be empty or whitespace.");
+                return;
             }
-
-            
-
 
             DateTime datePart;
-            if(!DateTime.TryParse(eventDateBox.Text, out datePart)){
+            if (!DateTime.TryParse(eventDateBox.Text, out datePart))
+            {
                 MessageBox.Show("Invalid date format. Please enter a valid date.");
+                return;
             }
-            DateTime date = datePart.Date + dateTimePicker1.Value.TimeOfDay;
+
+            // Take the date part
+            DateTime datePartOnly = datePart.Date;
+
+            // Take the time part but drop seconds/milliseconds
+            TimeSpan timePart = new TimeSpan(dateTimePicker1.Value.Hour, dateTimePicker1.Value.Minute, 0);
+
+            // Combine into final DateTime
+            DateTime date = datePartOnly + timePart;
             string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
 
             try
@@ -78,13 +85,31 @@ namespace groupProject
                 using (var conn = new MySqlConnection(connStr))
                 {
                     conn.Open();
+
+
+                    string conflictSQL = @"SELECT COUNT(*) FROM groupjnk_event 
+                                   WHERE dateTime = @dateTime;";
+                    using (var conflictCmd = new MySqlCommand(conflictSQL, conn))
+                    {
+                        conflictCmd.Parameters.AddWithValue("@dateTime", date);
+
+
+                        int conflictCount = Convert.ToInt32(conflictCmd.ExecuteScalar());
+                        if (conflictCount > 0)
+                        {
+                            MessageBox.Show("An event already exists at this time.");
+                            return; // Stop execution
+                        }
+                    }
+
                     long eventID = -1;
                     using (var transaction = conn.BeginTransaction())
                     {
-                        
                         try
                         {
-                            string insertionSQL = @"insert into groupjnk_event (title, dateTime, description, location, companyEvent) values (@title, @dateTime, @description, @location, @companyEvent);";
+                            string insertionSQL = @"INSERT INTO groupjnk_event 
+                        (title, dateTime, description, location, companyEvent) 
+                        VALUES (@title, @dateTime, @description, @location, @companyEvent);";
 
                             using (var command = new MySqlCommand(insertionSQL, conn, transaction))
                             {
@@ -92,25 +117,22 @@ namespace groupProject
                                 command.Parameters.AddWithValue("@dateTime", date);
                                 command.Parameters.AddWithValue("@description", desc);
                                 command.Parameters.AddWithValue("@location", location);
-                                command.Parameters.AddWithValue("@companyEvent", 0); // user-created event
-
+                                command.Parameters.AddWithValue("@companyEvent", 0);
 
                                 int rowsAffected = command.ExecuteNonQuery();
-
                                 if (rowsAffected > 0)
                                 {
                                     transaction.Commit();
-                                    //MessageBox.Show("Event added successfully.");
+                                    eventID = command.LastInsertedId;
+
                                     this.Hide();
                                     var menu = Application.OpenForms.OfType<UserMenu>().FirstOrDefault();
                                     menu.Show();
-
                                 }
                                 else
                                 {
                                     MessageBox.Show("Failed to add event.");
                                 }
-                                eventID = command.LastInsertedId;
                             }
                         }
                         catch (Exception ex)
@@ -120,35 +142,31 @@ namespace groupProject
                         }
                     }
 
+                    // Second insert into created_event table
                     using (var transaction = conn.BeginTransaction())
                     {
                         try
                         {
-                            string insertionSQL = @"insert into groupjnk_created_event (eventID, userID) values (@eventID, @userID);";
+                            string insertionSQL = @"INSERT INTO groupjnk_created_event (eventID, userID) 
+                                            VALUES (@eventID, @userID);";
 
                             using (var command = new MySqlCommand(insertionSQL, conn, transaction))
                             {
                                 command.Parameters.AddWithValue("@eventID", (int)eventID);
                                 command.Parameters.AddWithValue("@userID", CurrentUser.id);
-                                
-
 
                                 int rowsAffected = command.ExecuteNonQuery();
-
                                 if (rowsAffected > 0)
                                 {
                                     transaction.Commit();
-                                    //MessageBox.Show("Entry added successfully.");
                                     this.Hide();
                                     var menu = Application.OpenForms.OfType<UserMenu>().FirstOrDefault();
                                     menu.Show();
-
                                 }
                                 else
                                 {
                                     MessageBox.Show("Failed to add entry.");
                                 }
-                                
                             }
                         }
                         catch (Exception ex)
@@ -156,23 +174,16 @@ namespace groupProject
                             Console.WriteLine(ex.ToString());
                             transaction.Rollback();
                         }
-
-
                     }
-
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            
+
             Console.WriteLine("Done.");
-
-
-           
         }
-
         private void button4_Click(object sender, EventArgs e) //cancel selected
         {
             this.Hide();
